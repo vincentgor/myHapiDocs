@@ -6,13 +6,15 @@ var jsyaml = require('js-yaml');
 var swaggerTools = require('swagger-tools');
 var SwaggerExpress = require('swagger-express-mw');
 
+var setting = require("./config/setting.js")
+
 module.exports = app; // for testing
 
 var config = {
     appRoot: __dirname // required config
 };
 
-var serverPort = 8080;
+var serverPort = setting.port;
 
 // swaggerRouter configuration
 var options = {
@@ -54,11 +56,11 @@ swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
 
         // Start the server
         app.listen(port, function () {
-            console.log('Your server is listening on port %d (http://localhost:%d)', port, port);
+            console.log('Your server is listening on port %d (' + setting.hostname + ':%d)', port, port);
         });
 
         if (swaggerExpress.runner.swagger.paths['/hello']) {
-            console.log('try this:\ncurl http://127.0.0.1:' + port + '/hello?name=Scott');
+            console.log('try this:\ncurl ' + setting.hostname + ':' + port + '/hello?name=Scott');
         }
 
     });
