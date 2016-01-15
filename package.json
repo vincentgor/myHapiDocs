@@ -1,0 +1,26 @@
+{
+  "name": "hello_hapi",
+  "version": "0.0.1",
+  "private": false,
+  "description": "New Swagger API Project",
+  "keywords": [],
+  "author": "vinxent",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vincentgor/myHapiDocs.git"
+  },
+  "dependencies": {
+    "hapi": "^12.1.0",
+    "swagger-hapi": "^0.6.0"
+  },
+  "devDependencies": {
+    "should": "^8.1.1",
+    "supertest": "^1.1.0"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "swagger project test"
+  }
+}
